@@ -8,38 +8,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&mt {
-};
+&mt { flavor = "tap-preferred"; };
 
 / {
-    behaviors {
-        HMR_R: HMR_R {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMR_R";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            hold-trigger-on-release;
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
-        };
-
-        HMR_L: HMR_L {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HMR_L";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
-            hold-trigger-on-release;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -52,10 +23,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp E  &kp R                &kp T        &kp Y          &kp U                 &kp I          &kp O    &kp P     &kp MINUS
-&kp ESCAPE        &kp A  &kp S  &kp D  &HMR_L LEFT_SHIFT F  &kp G        &kp H          &HMR_R RIGHT_SHIFT J  &kp K          &kp L    &kp SEMI  &kp SQT
-&kp LEFT_CONTROL  &kp Z  &kp X  &kp C  &kp V                &kp B        &kp N          &kp M                 &kp COMMA      &kp DOT  &kp FSLH  &kp RIGHT_ALT
-                                &mo 1  &mo 2                &kp SPACE    &kp BACKSPACE  &kp RET               &kp RIGHT_GUI
+&kp TAB         &kp Q  &kp W  &kp E  &kp R  &kp T              &kp Y          &kp U      &kp I          &kp O    &kp P     &kp MINUS
+&kp ESCAPE      &kp A  &kp S  &kp D  &kp F  &kp G              &kp H          &kp J      &kp K          &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B              &kp N          &kp M      &kp COMMA      &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+                              &mo 1  &mo 2  &mt SPACE LCTRL    &kp BACKSPACE  &kp ENTER  &kp RIGHT_ALT
             >;
         };
 
@@ -70,7 +41,7 @@
             bindings = <
 &kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6            &kp F7     &kp F8         &kp F9     &kp F10    &kp F11  &kp F12
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &kp LEFT   &kp DOWN       &kp UP     &kp RIGHT  &trans   &trans
-&kp LCTRL   &kp LEFT_GUI  &kp LEFT_ALT  &trans        &trans        &trans            &kp HOME   &kp PAGE_DOWN  &kp PG_UP  &kp END    &trans   &trans
+&kp LCTRL   &kp LEFT_GUI  &kp LEFT_ALT  &trans        &trans        &trans            &kp HOME   &kp PAGE_DOWN  &kp PG_UP  &kp END    &kp DEL  &trans
                                         &trans        &trans        &bt BT_CLR_ALL    &kp LCTRL  &kp RIGHT_GUI  &kp RALT
             >;
         };
